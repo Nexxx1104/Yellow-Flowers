@@ -1,0 +1,50 @@
+.audio-control {
+    position: center;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+/* Estilos para el ícono de audio apagado */
+.audio-control i.off {
+    color: red;
+}
+
+/* Estilos para el ícono de audio encendido */
+.audio-control i.on {
+    color: green;
+}
+
+/* Estilos para la línea trazada al presionar el botón */
+.audio-control::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: white;
+    transform: scaleX(0); /* Inicialmente no visible */
+    transition: transform 0.2s ease;
+    top: 50%;
+    left: 50%;
+    transform-origin: left;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Estilos para el reproductor de audio oculto */
+#audio-player {
+    display: none;
+}
+
+.audio-control.active::before {
+    transform: scaleX(1); /* Mostrar la línea cuando el botón está activo */
+}
